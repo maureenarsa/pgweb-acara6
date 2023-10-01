@@ -53,7 +53,7 @@
         <div class="card">
         <div class="card">
             <div class="card-header">
-                <h5><i class="fa-solid fa-school-flag"></i> Pendidikan</h5>
+                <h5><i class="fa-solid fa-cloud-moon-rain"></i> Curah Hujan</h5>
             </div>
             <div class="card-body">
             <div id="chart">
@@ -87,86 +87,59 @@
 
     <script>
         var options = {
-          series: [
-          {
-            name: "Negeri",
-            data: [1015, 2039, 2693, 1176, 0, 1175, 0]
-          },
-          {
-            name: "Swasta",
-            data: [1169, 920, 978, 892, 795, 2524, 990]
-          }
-        ],
+          series: [{
+          name: 'Curah Hujan Per Bulan (mm)',
+          data: [765, 660, 236, 63, 313, 105, 8, 42, 48, 390, 341, 751],
+        }],
           chart: {
           height: 350,
-          type: 'line',
-          dropShadow: {
-            enabled: true,
-            color: '#000',
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
-          },
-          toolbar: {
-            show: false
-          }
+          type: 'radar',
         },
-        colors: ['#F94C10', '#7A9D54'],
         dataLabels: {
-          enabled: true,
+          enabled: true
         },
-        stroke: {
-          curve: 'smooth'
+        plotOptions: {
+          radar: {
+            size: 140,
+            polygons: {
+              strokeColors: '#9EDDFF',
+              fill: {
+                colors: ['#9EDDFF', '#BEFFF7']
+              }
+            }
+          }
         },
         title: {
-          text: 'Jumlah Murid di Sekolah Negeri dan Swasta',
-          align: 'left'
+          text: 'Curah Hujan Per Bulan (mm)'
         },
-        grid: {
-          borderColor: '#e7e7e7',
-          row: {
-            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-            opacity: 0.5
-          },
-        },
+        colors: ['#2E4374'],
         markers: {
-          size: 1
+          size: 4,
+          colors: ['#fff'],
+          strokeColor: '#3085C3',
+          strokeWidth: 2,
         },
-        xaxis: {
-          categories: ['Mariso',
-'Mamajang',
-'Tamalate',
-'Rappocini',
-'Makassar',
-'Ujung Pandang',
-'Wajo',
-'Bontoala',
-'Ujung Tanah',
-'Kepulauan Sangkarrang',
-'Tallo',
-'Panakkukang',
-'Manggala',
-'Biringkanaya',
-'Tamalanrea'
-],
-          title: {
-            text: 'Kecamatan'
+        tooltip: {
+          y: {
+            formatter: function(val) {
+              return val
+            }
           }
         },
-        yaxis: {
-          title: {
-            text: 'Jumlah'
-          },
-          min: 0,
-          max: 3000
+        xaxis: {
+          categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
         },
-        legend: {
-          position: 'top',
-          horizontalAlign: 'right',
-          floating: true,
-          offsetY: -25,
-          offsetX: -5
+        yaxis: {
+          tickAmount: 7,
+          labels: {
+            formatter: function(val, i) {
+              if (i % 2 === 0) {
+                return val
+              } else {
+                return ''
+              }
+            }
+          }
         }
         };
 

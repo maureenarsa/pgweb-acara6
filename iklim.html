@@ -7,7 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.42.0/apexcharts.min.css" integrity="sha512-nnNXPeQKvNOEUd+TrFbofWwHT0ezcZiFU5E/Lv2+JlZCQwQ/ACM33FxPoQ6ZEFNnERrTho8lF0MCEH9DBZ/wWw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    
+  </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -53,7 +54,7 @@
         <div class="card">
         <div class="card">
             <div class="card-header">
-                <h5><i class="fa-solid fa-school-flag"></i> Pendidikan</h5>
+                <h5><i class="fa-solid fa-earth-americas"></i> Kondisi Iklim</h5>
             </div>
             <div class="card-body">
             <div id="chart">
@@ -87,86 +88,58 @@
 
     <script>
         var options = {
-          series: [
-          {
-            name: "Negeri",
-            data: [1015, 2039, 2693, 1176, 0, 1175, 0]
-          },
-          {
-            name: "Swasta",
-            data: [1169, 920, 978, 892, 795, 2524, 990]
-          }
-        ],
+          series: [{
+          name: 'Suhu',
+          type: 'area',
+          data: [32.20, 33.20, 32.80, 33.40, 34.40, 33.20, 34.00, 33.40, 34.80, 34.20, 34.60, 33.60]
+        }, {
+          name: 'Kecepatan Angin',
+          type: 'line',
+          data: [28.00, 15.00, 21.00, 14.00, 15.00, 13.00, 13.00, 15.00, 16.00, 15.00, 21.00, 22.00]
+        }],
           chart: {
           height: 350,
-          type: 'line',
-          dropShadow: {
-            enabled: true,
-            color: '#000',
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
-          },
-          toolbar: {
-            show: false
-          }
+          type: 'area',
         },
-        colors: ['#F94C10', '#7A9D54'],
+        colors: ['#1A5D1A', '#F1C93B'],
         dataLabels: {
           enabled: true,
         },
         stroke: {
           curve: 'smooth'
         },
-        title: {
-          text: 'Jumlah Murid di Sekolah Negeri dan Swasta',
-          align: 'left'
+        fill: {
+          type:'solid',
+          opacity: [0.35, 1],
         },
-        grid: {
-          borderColor: '#e7e7e7',
-          row: {
-            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-            opacity: 0.5
-          },
-        },
+        labels: ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober', 'November','Desember',],
         markers: {
-          size: 1
+          size: 0
         },
-        xaxis: {
-          categories: ['Mariso',
-'Mamajang',
-'Tamalate',
-'Rappocini',
-'Makassar',
-'Ujung Pandang',
-'Wajo',
-'Bontoala',
-'Ujung Tanah',
-'Kepulauan Sangkarrang',
-'Tallo',
-'Panakkukang',
-'Manggala',
-'Biringkanaya',
-'Tamalanrea'
-],
-          title: {
-            text: 'Kecamatan'
-          }
-        },
-        yaxis: {
-          title: {
-            text: 'Jumlah'
+        yaxis: [
+          {
+            title: {
+              text: 'Suhu (°C)',
+            },
           },
-          min: 0,
-          max: 3000
-        },
-        legend: {
-          position: 'top',
-          horizontalAlign: 'right',
-          floating: true,
-          offsetY: -25,
-          offsetX: -5
+          {
+            opposite: true,
+            title: {
+              text: 'Kecepatan Angin (m/s)',
+            },
+          },
+        ],
+        tooltip: {
+          shared: true,
+          intersect: false,
+          y: {
+            formatter: function (y) {
+              if(typeof y !== "undefined") {
+                return  y.toFixed(0) + " ";
+              }
+              return y;
+            }
+          }
         }
         };
 

@@ -53,7 +53,7 @@
         <div class="card">
         <div class="card">
             <div class="card-header">
-                <h5><i class="fa-solid fa-school-flag"></i> Pendidikan</h5>
+                <h5><i class="fa-solid fa-sack-dollar"></i> Perekonomian</h5>
             </div>
             <div class="card-body">
             <div id="chart">
@@ -87,87 +87,65 @@
 
     <script>
         var options = {
-          series: [
-          {
-            name: "Negeri",
-            data: [1015, 2039, 2693, 1176, 0, 1175, 0]
-          },
-          {
-            name: "Swasta",
-            data: [1169, 920, 978, 892, 795, 2524, 990]
-          }
-        ],
+          series: [18, 421, 8522, 0],
           chart: {
-          height: 350,
-          type: 'line',
-          dropShadow: {
-            enabled: true,
-            color: '#000',
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
-          },
-          toolbar: {
-            show: false
-          }
-        },
-        colors: ['#F94C10', '#7A9D54'],
-        dataLabels: {
-          enabled: true,
-        },
-        stroke: {
-          curve: 'smooth'
+          height: 390,
+          type: 'radialBar',
         },
         title: {
-          text: 'Jumlah Murid di Sekolah Negeri dan Swasta',
-          align: 'left'
-        },
-        grid: {
-          borderColor: '#e7e7e7',
-          row: {
-            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-            opacity: 0.5
-          },
-        },
-        markers: {
-          size: 1
-        },
-        xaxis: {
-          categories: ['Mariso',
-'Mamajang',
-'Tamalate',
-'Rappocini',
-'Makassar',
-'Ujung Pandang',
-'Wajo',
-'Bontoala',
-'Ujung Tanah',
-'Kepulauan Sangkarrang',
-'Tallo',
-'Panakkukang',
-'Manggala',
-'Biringkanaya',
-'Tamalanrea'
-],
-          title: {
-            text: 'Kecamatan'
+          text: 'Jumlah Sarana Perdagangan Menurut Jenisnya',
+          align: 'left'},
+        plotOptions: {
+          radialBar: {
+            offsetY: 0,
+            startAngle: 0,
+            endAngle: 270,
+            hollow: {
+              margin: 5,
+              size: '30%',
+              background: 'transparent',
+              image: undefined,
+            },
+            dataLabels: {
+              name: {
+                show: false,
+              },
+              value: {
+                show: false,
+              }
+            }
           }
         },
-        yaxis: {
-          title: {
-            text: 'Jumlah'
-          },
-          min: 0,
-          max: 3000
-        },
+        colors: ['#290001', '#87431D', '#C87941', '#8B9A46'],
+        labels: ['Pasar / Market', 'Toko / Store', 'Kios / Stall', 'Warung / Shop'],
         legend: {
-          position: 'top',
-          horizontalAlign: 'right',
+          show: true,
           floating: true,
-          offsetY: -25,
-          offsetX: -5
-        }
+          fontSize: '16px',
+          position: 'left',
+          offsetX: 160,
+          offsetY: 15,
+          labels: {
+            useSeriesColors: true,
+          },
+          markers: {
+            size: 0
+          },
+          formatter: function(seriesName, opts) {
+            return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+          },
+          itemMargin: {
+            vertical: 3
+          }
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            legend: {
+                show: false
+            }
+          }
+        }]
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);

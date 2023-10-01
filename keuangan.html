@@ -53,7 +53,7 @@
         <div class="card">
         <div class="card">
             <div class="card-header">
-                <h5><i class="fa-solid fa-school-flag"></i> Pendidikan</h5>
+                <h5><i class="fa-solid fa-coins"></i> Keuangan Pemerintah</h5>
             </div>
             <div class="card-body">
             <div id="chart">
@@ -87,86 +87,118 @@
 
     <script>
         var options = {
-          series: [
-          {
-            name: "Negeri",
-            data: [1015, 2039, 2693, 1176, 0, 1175, 0]
-          },
-          {
-            name: "Swasta",
-            data: [1169, 920, 978, 892, 795, 2524, 990]
-          }
-        ],
+          series: [{
+          name: 'Pendapatan Asli Daerah',
+          type: 'column',
+          data: [1303316337.55, 1078328561.27, 1139438031.61, 1387904746.60]
+        }, {
+          name: 'Dana Perimbangan',
+          type: 'column',
+          data: [1824567795.45, 1676121523.29, 1687551396.04, 1800519451.77]
+        }, {
+          name: 'Pendapatan Lain yang Sah',
+          type: 'line',
+          data: [538475857.15, 569212202.05, 457353094.54, 398909731.17]
+        }],
           chart: {
           height: 350,
           type: 'line',
-          dropShadow: {
-            enabled: true,
-            color: '#000',
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
-          },
-          toolbar: {
-            show: false
-          }
+          stacked: false
         },
-        colors: ['#F94C10', '#7A9D54'],
         dataLabels: {
-          enabled: true,
+          enabled: false
         },
         stroke: {
-          curve: 'smooth'
+          width: [1, 1, 4]
         },
         title: {
-          text: 'Jumlah Murid di Sekolah Negeri dan Swasta',
-          align: 'left'
-        },
-        grid: {
-          borderColor: '#e7e7e7',
-          row: {
-            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-            opacity: 0.5
-          },
-        },
-        markers: {
-          size: 1
+          text: 'Realisasi Pendapatan Pemerintah Menurut Jenis Pendapatan (Ribu Rupiah)',
+          align: 'left',
+          offsetX: 110
         },
         xaxis: {
-          categories: ['Mariso',
-'Mamajang',
-'Tamalate',
-'Rappocini',
-'Makassar',
-'Ujung Pandang',
-'Wajo',
-'Bontoala',
-'Ujung Tanah',
-'Kepulauan Sangkarrang',
-'Tallo',
-'Panakkukang',
-'Manggala',
-'Biringkanaya',
-'Tamalanrea'
-],
-          title: {
-            text: 'Kecamatan'
-          }
+          categories: [2019, 2020, 2021, 2022],
         },
-        yaxis: {
-          title: {
-            text: 'Jumlah'
+        yaxis: [
+          {
+            axisTicks: {
+              show: true,
+            },
+            axisBorder: {
+              show: true,
+              color: '#008FFB'
+            },
+            labels: {
+              style: {
+                colors: '#008FFB',
+              }
+            },
+            title: {
+              text: "Pendapatan Asli Daerah",
+              style: {
+                color: '#008FFB',
+              }
+            },
+            tooltip: {
+              enabled: true
+            }
           },
-          min: 0,
-          max: 3000
+          {
+            seriesName: 'Income',
+            opposite: true,
+            axisTicks: {
+              show: true,
+            },
+            axisBorder: {
+              show: true,
+              color: '#00E396'
+            },
+            labels: {
+              style: {
+                colors: '#00E396',
+              }
+            },
+            title: {
+              text: "Dana Perimbangan",
+              style: {
+                color: '#00E396',
+              }
+            },
+          },
+          {
+            seriesName: 'Revenue',
+            opposite: true,
+            axisTicks: {
+              show: true,
+            },
+            axisBorder: {
+              show: true,
+              color: '#FEB019'
+            },
+            labels: {
+              style: {
+                colors: '#FEB019',
+              },
+            },
+            title: {
+              text: "Pendapatan Lain yang Sah",
+              style: {
+                color: '#FEB019',
+              }
+            }
+          },
+        ],
+        tooltip: {
+          fixed: {
+            enabled: true,
+            position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+            offsetY: 30,
+            offsetX: 60
+          },
         },
         legend: {
-          position: 'top',
-          horizontalAlign: 'right',
-          floating: true,
-          offsetY: -25,
-          offsetX: -5
+          horizontalAlign: 'left',
+          offsetX: 40
         }
         };
 

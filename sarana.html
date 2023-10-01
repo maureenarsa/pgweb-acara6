@@ -53,7 +53,7 @@
         <div class="card">
         <div class="card">
             <div class="card-header">
-                <h5><i class="fa-solid fa-school-flag"></i> Pendidikan</h5>
+                <h5><i class="fa-solid fa-place-of-worship"></i> Sarana Prasarana</h5>
             </div>
             <div class="card-body">
             <div id="chart">
@@ -87,86 +87,70 @@
 
     <script>
         var options = {
-          series: [
-          {
-            name: "Negeri",
-            data: [1015, 2039, 2693, 1176, 0, 1175, 0]
-          },
-          {
-            name: "Swasta",
-            data: [1169, 920, 978, 892, 795, 2524, 990]
-          }
-        ],
+          series: [{
+          data: [0, 0, 1, 4, 11, 11, 31, 38, 39]
+        }],
           chart: {
-          height: 350,
-          type: 'line',
-          dropShadow: {
-            enabled: true,
-            color: '#000',
-            top: 18,
-            left: 7,
-            blur: 10,
-            opacity: 0.2
+          type: 'bar',
+          height: 380
+        },
+        plotOptions: {
+          bar: {
+            barHeight: '100%',
+            distributed: true,
+            horizontal: true,
+            dataLabels: {
+              position: 'bottom'
+            },
+          }
+        },
+        colors: ['#33b2df', '#546E7A', '#d4526e', '#13d8aa', '#A5978B', '#2b908f', '#f9a3a4', '#90ee7e',
+          '#f48024', '#69d2e7'
+        ],
+        dataLabels: {
+          enabled: true,
+          textAnchor: 'start',
+          style: {
+            colors: ['#5F264A']
           },
-          toolbar: {
+          formatter: function (val, opt) {
+            return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+          },
+          offsetX: 0,
+          dropShadow: {
+            enabled: false
+          }
+        },
+        stroke: {
+          width: 1,
+          colors: ['#fff']
+        },
+        xaxis: {
+          categories: ['Basket', 'Karate', 'Menembak', 'Renang', 'Futsal', 'Takraw', 'Sepakbola', 'Volly', 'Bulutangkis'
+          ],
+        },
+        yaxis: {
+          labels: {
             show: false
           }
         },
-        colors: ['#F94C10', '#7A9D54'],
-        dataLabels: {
-          enabled: true,
-        },
-        stroke: {
-          curve: 'smooth'
-        },
         title: {
-          text: 'Jumlah Murid di Sekolah Negeri dan Swasta',
-          align: 'left'
+            text: 'Jumlah Sarana Olahraga',
+            align: 'center',
+            floating: true
         },
-        grid: {
-          borderColor: '#e7e7e7',
-          row: {
-            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-            opacity: 0.5
+        tooltip: {
+          theme: 'dark',
+          x: {
+            show: false
           },
-        },
-        markers: {
-          size: 1
-        },
-        xaxis: {
-          categories: ['Mariso',
-'Mamajang',
-'Tamalate',
-'Rappocini',
-'Makassar',
-'Ujung Pandang',
-'Wajo',
-'Bontoala',
-'Ujung Tanah',
-'Kepulauan Sangkarrang',
-'Tallo',
-'Panakkukang',
-'Manggala',
-'Biringkanaya',
-'Tamalanrea'
-],
-          title: {
-            text: 'Kecamatan'
+          y: {
+            title: {
+              formatter: function () {
+                return ''
+              }
+            }
           }
-        },
-        yaxis: {
-          title: {
-            text: 'Jumlah'
-          },
-          min: 0,
-          max: 3000
-        },
-        legend: {
-          position: 'top',
-          horizontalAlign: 'right',
-          floating: true,
-          offsetY: -25,
-          offsetX: -5
         }
         };
 

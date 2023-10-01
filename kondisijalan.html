@@ -27,15 +27,17 @@
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="pendidikan.html">Pendidikan</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Perekonomian</a></li>
+                  <li><a class="dropdown-item" href="perekonomian.html">Perekonomian</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Peribadatan</a></li>
+                  <li><a class="dropdown-item" href="sarana.html">Sarana Prasarana</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Kesehatan</a></li>
+                  <li><a class="dropdown-item" href="keuangan.html">Keuangan Pemerintah</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="kondisijalan.html">Kondisi Jalan</a></li>
+                  <li><a class="dropdown-item" href="kondisijalan.html">Transportasi</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Kebencanaan</a></li>
+                  <li><a class="dropdown-item" href="iklim.html">Kondisi Iklim</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="curahhujan.html">Curah Hujan</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -51,7 +53,7 @@
         <div class="card">
         <div class="card">
             <div class="card-header">
-                <h5><i class="fa-solid fa-road"></i> Kondisi Jalan</h5>
+                <h5><i class="fa-solid fa-road"></i> Transportasi</h5>
             </div>
             <div class="card-body">
             <div id="chart">
@@ -88,8 +90,12 @@
           series: [685.16, 86.13, 16.32, 0.08],
           chart: {
           type: 'donut',
-          width: 500
+          width: 580
         },
+        title: {
+        text: 'Panjang Jalan Menurut Kondisinya',
+        align: 'left'},
+        colors: ['#186F65', '#B5CB99', '#DAC0A3', '#B2533E'],
         labels: ['Baik', 'Sedang', 'Rusak', 'Rusak Berat'],
         responsive: [{
           breakpoint: 480,
@@ -97,8 +103,9 @@
             chart: {
               width: 200
             },
+            
             legend: {
-              position: 'bottom'
+              position: 'center'
             }
           }
         }]

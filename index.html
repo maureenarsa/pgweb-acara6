@@ -27,15 +27,17 @@
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="pendidikan.html">Kependidikan</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Perekonomian</a></li>
+                  <li><a class="dropdown-item" href="perekonomian.html">Perekonomian</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Peribadatan</a></li>
+                  <li><a class="dropdown-item" href="sarana.html">Sarana Prasarana</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Kesehatan</a></li>
+                  <li><a class="dropdown-item" href="keuangan.html">Keuangan Pemerintah</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="kondisijalan.html">Kondisi Jalan</a></li>
+                  <li><a class="dropdown-item" href="kondisijalan.html">Transportasi</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Kebencanaan</a></li>
+                  <li><a class="dropdown-item" href="iklim.html">Kondisi Iklim</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="curahhujan.html">Curah Hujan</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -84,55 +86,93 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.42.0/apexcharts.min.js" integrity="sha512-HctQcT5hnI/elQck4950pvd50RuDnjCSGSoHI8CNyQIYVxsUoyJ+gSQIOrll4oM/Z7Kfi7WCLMIbJbiwYHFCpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        var options = {
-        series: [{
-        name: 'Laki-laki',
-        data: [29007, 27542, 91174, 70865, 40763, 11903, 15042, 27410, 18087, 7087, 73552, 69762, 74113, 105584, 51471]
-        } , {
-        name: 'Perempuan',
-        data: [28788, 28552, 91174, 73868, 41502, 12638, 15068, 27829, 18040, 7171, 72356, 69997, 74349, 105644, 51851]
-        } ],
-        chart: {
-        type: 'bar',
-        height: 350
-        },
-        plotOptions: {
-        bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-        },
-        },
-        dataLabels: {
-        enabled: false
-        },
-        stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent']
-        },
-        xaxis: {
-        categories: ['Mariso', 'Mamajang', 'Tamalate', 'Rappocini', 'Makassar', 'Ujung Pandang', 'Wajo', 'Bontoala', 'Ujung Tanah', 'Kepulauan Sangkarrang', 'Tallo', 'Panakkukang', 'Manggala', 'Biringkanaya', 'Tamalanrea'],
-        },
-        yaxis: {
-        title: {
-            text: 'Jumlah Penduduk'
-        }
-        },
-        fill: {
-        opacity: 1
-        },
-        tooltip: {
-        y: {
-            formatter: function (val) {
-            return val + "jiwa"
-            }
-        }
-        }, 
-        
-        }
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
+       var options = {
+  series: [
+    {
+      name: 'Laki-laki',
+      data: [-8173, -9907, -16630, -23985, -32300, -36626, -41659, -48188, -54080, -63095, -65171, -66656, -66660, -63310, -57038, -59884],
+    },
+    {
+      name: 'Perempuan',
+      data: [12911, 12539, 19615, 26236, 35182, 40945, 45535, 50324, 55345, 61299, 63462, 62878, 62322, 59346, 54374, 56514],
+    },
+  ],
+  chart: {
+    type: 'bar',
+    height: 440,
+    stacked: true,
+  },
+  colors: ['#0A01FF', '#FF1493'],
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      barHeight: '80%',
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    width: 1,
+    colors: ['#fff'],
+  },
+  grid: {
+    xaxis: {
+      lines: {
+        show: false,
+      },
+    },
+  },
+  yaxis: {
+    min:-60000,
+    max: 60000,
+    title: {
+      // text: 'Age',
+    },
+  },
+  tooltip: {
+    y: {
+      formatter: function (val) {
+        return val + ' jiwa';
+      },
+    },
+  },
+  title: {
+    text: 'Jumlah Penduduk Menurut Umur dan Jenis Kelamin',
+  },
+  xaxis: {
+    categories: [
+      '75+',
+      '70-74',
+      '65-69',
+      '60-64',
+      '55-59',
+      '50-54',
+      '45-49',
+      '40-44',
+      '35-39',
+      '30-34',
+      '25-29',
+      '20-24',
+      '15-19',
+      '10-14',
+      '5-9',
+      '0-4',
+    ],
+    title: {
+      text: '',
+    },
+    labels: {
+      formatter: function (val) {
+        return Math.abs(val) + ' jiwa';
+      },
+    },
+  },
+};
+
+var chart = new ApexCharts(document.querySelector('#chart'), options);
+chart.render();
+
     </script>
 
     
